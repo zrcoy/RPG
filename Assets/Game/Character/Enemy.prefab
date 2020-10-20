@@ -29,19 +29,6 @@ MonoBehaviour:
   weaponRange: 2
   timeBetweenAttacks: 2
   weaponDamage: 5
---- !u!114 &315695618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3704307005336105947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20dc57c033e211941912f011837b9e62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 20
 --- !u!114 &315695619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,6 +117,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1195087655814255385, guid: c0823b2e920a5004c9375357859df22c, type: 3}
+      propertyPath: healthPoints
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8047496268046972747, guid: c0823b2e920a5004c9375357859df22c, type: 3}
       propertyPath: m_Name
       value: Enemy

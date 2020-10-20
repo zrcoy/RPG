@@ -9,9 +9,6 @@ namespace RPG.Movement
 {
     public class Mover : MonoBehaviour, IAction
     {
-        // [SerializeField]
-        // Transform target;
-
         NavMeshAgent navMeshAgent;
 
         private void Start()
@@ -35,7 +32,6 @@ namespace RPG.Movement
         public void StartMoveAction(Vector3 destination)
         {
             GetComponent<ActionScheduler>().StartAction(this);
-            //GetComponent<Fighter>().Cancel();
             MoveTo(destination);
         }
 
