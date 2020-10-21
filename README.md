@@ -1,3 +1,3 @@
 # RPG
 
-Developing an single player RPG game for student use only.
+Learning and developing a single player RPG game for student use only.
