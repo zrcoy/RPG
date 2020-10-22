@@ -52,20 +52,25 @@ namespace RPG.Control
             return false;
         }
 
+
         private bool InteractWithMovement()
         {
-            RaycastHit hit;
-            bool isHit = Physics.Raycast(GetMouseRay(), out hit);
-            if (isHit)
+            RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
+            foreach(RaycastHit hit in hits)
             {
+                if(hit.collider == this.GetComponent<Collider>() )
+                {
+                    continue;
+                }
                 if (Input.GetMouseButton(0))
                 {
-                    mover.StartMoveAction(hit.point,1f);
+                    mover.StartMoveAction(hit.point, 1f);
                 }
                 return true;
             }
             return false;
         }
+        
 
         private static Ray GetMouseRay()
         {
