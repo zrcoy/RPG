@@ -101,7 +101,11 @@ PrefabInstance:
     - target: {fileID: 589246300, guid: c0823b2e920a5004c9375357859df22c, type: 3}
       propertyPath: defaultWeapon
       value: 
-      objectReference: {fileID: 11400000, guid: 39446aea2031a9242938f875252bbd65, type: 2}
+      objectReference: {fileID: 11400000, guid: e55c4700a0d6ff44f986acef935fe291, type: 2}
+    - target: {fileID: 589246300, guid: c0823b2e920a5004c9375357859df22c, type: 3}
+      propertyPath: timeBetweenAttacks
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 589246303, guid: c0823b2e920a5004c9375357859df22c, type: 3}
       propertyPath: m_Enabled
       value: 0
