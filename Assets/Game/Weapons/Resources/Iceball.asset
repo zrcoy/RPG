@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfdb865063a852d42bf017f014cdba46, type: 3}
-  m_Name: Fireball
+  m_Name: Iceball
   m_EditorClassIdentifier: 
-  animatorOverrider: {fileID: 22100000, guid: be5bd49136283c84e9d27e893af5deb5, type: 2}
+  animatorOverrider: {fileID: 22100000, guid: 88a6adf043b868443b5c4981a30f41b6, type: 2}
   equippedPrefab: {fileID: 0}
   weaponDamage: 15
   weaponRange: 15
   isRightHanded: 0
-  projectile: {fileID: 5271611859814196735, guid: c2187d4b478438643b5ef85ea2c6e66d, type: 3}
+  projectile: {fileID: 6599914475272696229, guid: 4fa4ff1a340fdc1419f5ee99048d55e8, type: 3}

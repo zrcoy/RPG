@@ -9,11 +9,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4818215168014605718, guid: 784f143587f375e42936930d44e09369, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.681
       objectReference: {fileID: 0}
     - target: {fileID: 4818215168014605718, guid: 784f143587f375e42936930d44e09369, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5271611859814196735, guid: 784f143587f375e42936930d44e09369, type: 3}
+      propertyPath: hitEffect
+      value: 
+      objectReference: {fileID: 8026560894642288969, guid: b5810d30a92ee7a41917ad72d048413e, type: 3}
+    - target: {fileID: 5271611859814196735, guid: 784f143587f375e42936930d44e09369, type: 3}
+      propertyPath: lifeAfterImpact
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6998309903345796037, guid: 784f143587f375e42936930d44e09369, type: 3}
       propertyPath: m_LocalPosition.x

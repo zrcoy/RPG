@@ -1,8 +1,5 @@
-﻿using RPG.Core;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using RPG.Resources;
 
 namespace RPG.Combat
 {
@@ -10,12 +7,14 @@ namespace RPG.Combat
     {
         [SerializeField] float speed = 2;
         [SerializeField] bool isHoming = false;
+        [SerializeField] GameObject hitEffect = null;
+        [SerializeField] float TimeMaxExisting = 2f;
+        [SerializeField] GameObject[] destroyOnHit = null;
+        [SerializeField] float lifeAfterImpact = 2f;
 
-        const float TimeMaxExisting = 2f;
 
         Health target = null;
         float damage = 0;
-        float timerForExist = 0;
 
         private void Start()
         {
@@ -33,17 +32,14 @@ namespace RPG.Combat
                 transform.LookAt(GetAimLocation());
             }
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
-            timerForExist += Time.deltaTime;
-            if (timerForExist >= TimeMaxExisting)
-            {
-                Destroy(gameObject);
-            }
+
         }
 
         public void SetTarget(Health target, float damage)
         {
             this.target = target;
             this.damage = damage;
+            Destroy(gameObject, TimeMaxExisting);
         }
 
         private Vector3 GetAimLocation()
@@ -68,7 +64,18 @@ namespace RPG.Combat
                 return;
             }
             target.TakeDamage(damage);
-            Destroy(gameObject);
+            speed = 0;
+            if (hitEffect != null)
+            {
+                Instantiate(hitEffect, GetAimLocation(), transform.rotation);
+            }
+            foreach(GameObject toDestroy in destroyOnHit)
+            {
+                Destroy(toDestroy);
+            }
+
+
+            Destroy(gameObject, lifeAfterImpact);
         }
     }
 
