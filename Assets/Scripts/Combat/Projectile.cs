@@ -8,13 +8,14 @@ namespace RPG.Combat
         [SerializeField] float speed = 2;
         [SerializeField] bool isHoming = false;
         [SerializeField] GameObject hitEffect = null;
-        [SerializeField] float TimeMaxExisting = 2f;
+        [SerializeField] float TimeMaxExisting = 4f;
         [SerializeField] GameObject[] destroyOnHit = null;
         [SerializeField] float lifeAfterImpact = 2f;
 
 
         Health target = null;
         float damage = 0;
+        GameObject instigator = null;
 
         private void Start()
         {
@@ -35,10 +36,11 @@ namespace RPG.Combat
 
         }
 
-        public void SetTarget(Health target, float damage)
+        public void SetTarget(Health target, GameObject instigator, float damage)
         {
             this.target = target;
             this.damage = damage;
+            this.instigator = instigator;
             Destroy(gameObject, TimeMaxExisting);
         }
 
@@ -63,7 +65,7 @@ namespace RPG.Combat
             {
                 return;
             }
-            target.TakeDamage(damage);
+            target.TakeDamage(instigator, damage);
             speed = 0;
             if (hitEffect != null)
             {
