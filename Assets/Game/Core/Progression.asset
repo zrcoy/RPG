@@ -29,6 +29,13 @@ MonoBehaviour:
       - 30
       - 40
       - 50
+    - stat: 3
+      levels:
+      - 10
+      - 20
+      - 30
+      - 40
+      - 50
   - characterClass: 1
     stats:
     - stat: 0
@@ -45,6 +52,13 @@ MonoBehaviour:
       - 30
       - 40
       - 50
+    - stat: 3
+      levels:
+      - 5
+      - 10
+      - 15
+      - 20
+      - 25
   - characterClass: 2
     stats:
     - stat: 0
@@ -61,6 +75,13 @@ MonoBehaviour:
       - 50
       - 60
       - 70
+    - stat: 3
+      levels:
+      - 7
+      - 12
+      - 17
+      - 22
+      - 27
   - characterClass: 3
     stats:
     - stat: 0
@@ -77,3 +98,10 @@ MonoBehaviour:
       - 60
       - 70
       - 80
+    - stat: 3
+      levels:
+      - 8
+      - 13
+      - 18
+      - 23
+      - 28

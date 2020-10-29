@@ -11,6 +11,7 @@ namespace RPG.Stats
         [SerializeField] CharacterClass characterClass;
         [SerializeField] Progression progression = null;
         [SerializeField] GameObject levelUpParticleEffect = null;
+        [SerializeField] bool shouldUseModifiers = false;
 
         int currentLevel = 0;
         public event Action onLevelUp;
@@ -27,8 +28,50 @@ namespace RPG.Stats
 
         public float GetStat(Stat stat)
         {
+            return (GetBaseStat(stat) + GetAdditiveModifier(stat)) * (GetPercentageModifier(stat)/100f + 1);
+        }
+
+
+
+        private float GetBaseStat(Stat stat)
+        {
             return progression.GetStat(stat, characterClass, GetLevel());
         }
+
+        private float GetAdditiveModifier(Stat stat)
+        {
+            if(!shouldUseModifiers)
+            {
+                return 0;
+            }
+            float total = 0;
+            foreach(IModifierProvider provider in GetComponents<IModifierProvider>())
+            {
+                foreach(float modifier in provider.GetAdditiveModifier(stat))
+                {
+                    total += modifier;
+                }
+            }
+            return total;
+        }
+
+        private float GetPercentageModifier(Stat stat)
+        {
+            if (!shouldUseModifiers)
+            {
+                return 0;
+            }
+            float total = 0;
+            foreach (IModifierProvider provider in GetComponents<IModifierProvider>())
+            {
+                foreach (float modifier in provider.GetPercentageModifier(stat))
+                {
+                    total += modifier;
+                }
+            }
+            return total;
+        }
+
         private void UpdateLevel()
         {
             int newLevel = CalculateLevel();
@@ -54,7 +97,7 @@ namespace RPG.Stats
             return currentLevel;
         }
 
-        public int CalculateLevel()
+        private int CalculateLevel()
         {
             Experience exComp = GetComponent<Experience>();
             if (exComp == null)
