@@ -934,6 +934,22 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5118334461840552697, guid: f20304f8c0a467b4b84d909c18f79929, type: 3}
+      propertyPath: cursorMappings.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5118334461840552697, guid: f20304f8c0a467b4b84d909c18f79929, type: 3}
+      propertyPath: cursorMappings.Array.data[4].type
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5118334461840552697, guid: f20304f8c0a467b4b84d909c18f79929, type: 3}
+      propertyPath: cursorMappings.Array.data[4].texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 2e71a8202d3b4a3448ec85ced5a40265, type: 3}
+    - target: {fileID: 5118334461840552697, guid: f20304f8c0a467b4b84d909c18f79929, type: 3}
+      propertyPath: cursorMappings.Array.data[1].texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 8859fce41c5d0a148ad0b7eebfca7fe9, type: 3}
     - target: {fileID: 5367695657683159778, guid: f20304f8c0a467b4b84d909c18f79929, type: 3}
       propertyPath: healthPoints
       value: 100
