@@ -1408,13 +1408,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 193.132
       objectReference: {fileID: 0}
+    - target: {fileID: 3349840560927885863, guid: cc62c18e8e4d60d4b998c3cbc527737d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5459790723700939611, guid: cc62c18e8e4d60d4b998c3cbc527737d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 46.584297
       objectReference: {fileID: 0}
     - target: {fileID: 5459790723700939611, guid: cc62c18e8e4d60d4b998c3cbc527737d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.23
+      value: 1.32
       objectReference: {fileID: 0}
     - target: {fileID: 5459790723700939611, guid: cc62c18e8e4d60d4b998c3cbc527737d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1452,9 +1456,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5459790723700939611, guid: cc62c18e8e4d60d4b998c3cbc527737d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5459790723700939611, guid: cc62c18e8e4d60d4b998c3cbc527737d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5459790723700939611, guid: cc62c18e8e4d60d4b998c3cbc527737d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8890096387832214480, guid: cc62c18e8e4d60d4b998c3cbc527737d, type: 3}
       propertyPath: m_Name
-      value: Portal
+      value: Portal A
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc62c18e8e4d60d4b998c3cbc527737d, type: 3}
@@ -1473,17 +1489,21 @@ PrefabInstance:
       propertyPath: destination
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3349840560927885863, guid: cc62c18e8e4d60d4b998c3cbc527737d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5459790723700939611, guid: cc62c18e8e4d60d4b998c3cbc527737d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -43.019325
+      value: -46.38
       objectReference: {fileID: 0}
     - target: {fileID: 5459790723700939611, guid: cc62c18e8e4d60d4b998c3cbc527737d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.41
+      value: 3.67
       objectReference: {fileID: 0}
     - target: {fileID: 5459790723700939611, guid: cc62c18e8e4d60d4b998c3cbc527737d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 18.396765
+      value: 18.42
       objectReference: {fileID: 0}
     - target: {fileID: 5459790723700939611, guid: cc62c18e8e4d60d4b998c3cbc527737d, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1519,15 +1539,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5459790723700939611, guid: cc62c18e8e4d60d4b998c3cbc527737d, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.0693128
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5459790723700939611, guid: cc62c18e8e4d60d4b998c3cbc527737d, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.90849257
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5459790723700939611, guid: cc62c18e8e4d60d4b998c3cbc527737d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8890096387832214480, guid: cc62c18e8e4d60d4b998c3cbc527737d, type: 3}
       propertyPath: m_Name
-      value: Portal (1)
+      value: Portal B
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc62c18e8e4d60d4b998c3cbc527737d, type: 3}

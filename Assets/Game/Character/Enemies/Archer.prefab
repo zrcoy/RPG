@@ -21,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: daf29a5240d5d7b4584547fb099fccab, type: 2}
     - target: {fileID: 496836725702530636, guid: cef5580670eb8674aabe9a3a81e713ff, type: 3}
       propertyPath: chaseDistance
-      value: 16
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1403650309380149993, guid: cef5580670eb8674aabe9a3a81e713ff, type: 3}
       propertyPath: m_LocalPosition.x

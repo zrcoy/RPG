@@ -10,10 +10,17 @@ namespace RPG.Resources
 {
     public class Health : MonoBehaviour, ISaveable
     {
-        [NonSerialized] float regenerationPercentage = 70;
-
+        [SerializeField] float regenerationPercentage = 70;
+        [SerializeField] float hp = 0;//debug use
         LazyValue<float> healthPoints;
         bool isDead = false;
+
+        //debug use
+        private void Update()
+        {
+            hp = healthPoints.value;
+        }
+
 
         private void Awake()
         {
