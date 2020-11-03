@@ -102,8 +102,6 @@ GameObject:
   m_Component:
   - component: {fileID: 132181007486422121}
   - component: {fileID: 5548297455526314480}
-  - component: {fileID: 8291315781180387911}
-  - component: {fileID: 3463828248616348950}
   m_Layer: 0
   m_Name: Core
   m_TagString: Untagged
@@ -143,40 +141,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   persistentObjectPrefab: {fileID: 401309543985096184, guid: 5bc9c5dc378329d41b2e70573602e57c, type: 3}
---- !u!114 &8291315781180387911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 132181007486422120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
---- !u!114 &3463828248616348950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 132181007486422120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
 --- !u!1001 &132181008745669095
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -476,7 +440,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5215332691554391757, guid: 73d52e5d6e2e4c246bdbfe8506021d48, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.6931915
+      value: 2.0331898
       objectReference: {fileID: 0}
     - target: {fileID: 5215332691554391757, guid: 73d52e5d6e2e4c246bdbfe8506021d48, type: 3}
       propertyPath: m_LocalPosition.y
@@ -484,7 +448,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5215332691554391757, guid: 73d52e5d6e2e4c246bdbfe8506021d48, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.975147
+      value: -5.875149
       objectReference: {fileID: 0}
     - target: {fileID: 5215332691554391757, guid: 73d52e5d6e2e4c246bdbfe8506021d48, type: 3}
       propertyPath: m_LocalRotation.x

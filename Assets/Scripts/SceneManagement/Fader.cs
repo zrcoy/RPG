@@ -7,10 +7,10 @@ namespace RPG.SceneManagement
     {
 
         CanvasGroup canvasGroup;
+        Coroutine currentActiveFade = null;
         private void Start()
         {
             canvasGroup = GetComponent<CanvasGroup>();
-            
         }
 
         public void FadeOutImmediately()
@@ -24,24 +24,34 @@ namespace RPG.SceneManagement
             yield return FadeIn(1f);
         }
 
-        public IEnumerator FadeOut(float time)
+        public Coroutine FadeOut(float time)
         {
-            while (canvasGroup.alpha < 1)
-            {
-                float num_frames = time / Time.deltaTime;
-                float alphaChangesPerFrame = 1 / num_frames;
-                canvasGroup.alpha = Mathf.Clamp(canvasGroup.alpha += alphaChangesPerFrame, 0, 1);
-                yield return null;
-            }
+            return Fade(1, time);
         }
-        
-        public IEnumerator FadeIn(float time)
+
+        public Coroutine FadeIn(float time)
         {
-            while (canvasGroup.alpha > 0)
+            return Fade(0, time);
+        }
+
+        public Coroutine Fade(float target, float time)
+        {
+            // cancel any previous routine
+            if (currentActiveFade != null)
             {
-                float num_frames = time / Time.deltaTime;
-                float alphaChangesPerFrame = 1 / num_frames;
-                canvasGroup.alpha = Mathf.Clamp(canvasGroup.alpha -= alphaChangesPerFrame, 0, 1);
+                StopCoroutine(currentActiveFade);
+            }
+            //active current routine
+            currentActiveFade = StartCoroutine(FadeRoutine(target, time));
+            return currentActiveFade;
+        }
+
+
+        public IEnumerator FadeRoutine(float target, float time)
+        {
+            while (!Mathf.Approximately(canvasGroup.alpha, target))
+            {
+                canvasGroup.alpha = Mathf.MoveTowards(canvasGroup.alpha, target, Time.deltaTime / time);
                 yield return null;
             }
         }

@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.AI;
+using RPG.Control;
 
 namespace RPG.SceneManagement
 {
@@ -39,16 +40,21 @@ namespace RPG.SceneManagement
             DontDestroyOnLoad(gameObject);
 
             Fader fader = FindObjectOfType<Fader>();
+            SavingWrapper savingWrapper = FindObjectOfType<SavingWrapper>();
+            //remove control
+            PlayerController playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+            playerController.enabled = false;
 
             yield return fader.FadeOut(timeForFadeOut);
 
             
-            SavingWrapper savingWrapper = FindObjectOfType<SavingWrapper>();
             savingWrapper.Save();
 
             yield return SceneManager.LoadSceneAsync(sceneToLoad);
+            //remove control for that new player
+            PlayerController newPlayerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+            newPlayerController.enabled = false;
 
-            
             savingWrapper.Load();
 
             Portal otherPortal = GetOtherPortal();
@@ -57,7 +63,11 @@ namespace RPG.SceneManagement
             savingWrapper.Save();
 
             yield return new WaitForSeconds(timeForFadeWait);
-            yield return fader.FadeIn(timeForFadeIn);
+            // don't have to yield fade in as I want to enable control immediatelly after wait for several seconds
+            fader.FadeIn(timeForFadeIn);
+
+            //restore control
+            newPlayerController.enabled = true;
             Destroy(gameObject);
         }
 
