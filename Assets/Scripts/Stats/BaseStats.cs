@@ -7,7 +7,7 @@ namespace RPG.Stats
 {
     public class BaseStats : MonoBehaviour
     {
-        [Range(1, 99)]
+        [Range(1, 18)]
         [SerializeField] int startingLevel = 1;
         [SerializeField] CharacterClass characterClass;
         [SerializeField] Progression progression = null;
@@ -133,6 +133,12 @@ namespace RPG.Stats
             }
             //max level 
             return totalLevels + 1;
+        }
+
+
+        public CharacterClass GetCharacterClass()
+        {
+            return characterClass;
         }
     }
 

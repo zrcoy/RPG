@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86bffeb80798e6a4ba81771d8b5c8ff1, type: 3}
+  m_Name: Color Look Up
+  m_EditorClassIdentifier: 
+  normalHitPlayerDeal: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 0}
+  criticalHitPlayerDeal: {r: 0.8773585, g: 0.76174164, b: 0, a: 0}
+  heal: {r: 0.043105267, g: 0.6415094, b: 0, a: 0}
+  damagePlayerReceive: {r: 0.7735849, g: 0, b: 0, a: 0}

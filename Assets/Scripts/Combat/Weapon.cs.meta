@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: cfdb865063a852d42bf017f014cdba46
+guid: a2bad4d80119fce4aa16ec78343bf877
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - weaponOverrider: {fileID: 22100000, guid: d5e26b35ede961644b302f3f77f7b877, type: 2}
-  - weaponPrefab: {fileID: 3556789844813230523, guid: 81855e419464b3b45865f79fc6df37a6, type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

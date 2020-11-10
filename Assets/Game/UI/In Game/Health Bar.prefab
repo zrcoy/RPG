@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1651589702300192720}
-  - component: {fileID: 8926822647110987778}
+  - component: {fileID: 7876006558371726388}
   m_Layer: 0
   m_Name: Health Bar
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8926822647110987778
+--- !u!114 &7876006558371726388
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69447c9590e2e9449b0191add2fd3104, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followCam: {fileID: 2106858277705221662, guid: 1371ea60e3d429848814d0bad7a3e033, type: 3}
 --- !u!1 &2232436287429065167
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,7 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
-  rectTransform: {fileID: 538873638288246216}
+  canvas: {fileID: 5622033044285987692}
 --- !u!1 &7837562419908850748
 GameObject:
   m_ObjectHideFlags: 0

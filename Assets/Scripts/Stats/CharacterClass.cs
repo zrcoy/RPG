@@ -6,5 +6,6 @@
         Grunt,
         Mage,
         Archer,
+        Healer,
     }
 }

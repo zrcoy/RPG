@@ -11,10 +11,16 @@ namespace RPG.Attributes
     public class Health : MonoBehaviour, ISaveable
     {
         [SerializeField] float regenerationPercentage = 70;
-        [SerializeField] TakeDamageEvent takeDamage;
+        [SerializeField] TakeDamageEvent takeDamageEvent;
+        [SerializeField] HealEvent healEvent;
+        [SerializeField] UnityEvent onDie;
 
         [System.Serializable]
-        public class TakeDamageEvent : UnityEvent<float>
+        public class TakeDamageEvent : UnityEvent<float, CharacterClass>
+        {
+        }
+        [System.Serializable]
+        public class HealEvent : UnityEvent<float, CharacterClass>
         {
         }
 
@@ -34,6 +40,8 @@ namespace RPG.Attributes
             healthPoints = new LazyValue<float>(GetInitialHealth);
         }
 
+      
+
         private float GetInitialHealth()
         {
             return GetComponent<BaseStats>().GetStat(Stat.Health);
@@ -42,7 +50,6 @@ namespace RPG.Attributes
         void Start()
         {
             healthPoints.ForceInit();
-
         }
 
         private void OnEnable()
@@ -67,14 +74,28 @@ namespace RPG.Attributes
                 //prevent multiple times xp added
                 if (!isDead)
                 {
+                    onDie.Invoke();
                     AwardExperience(instigator);
                 }
                 Die();
             }
-
-            takeDamage.Invoke(damage);
+            else
+            {
+                takeDamageEvent.Invoke(damage,instigator.GetComponent<BaseStats>().GetCharacterClass());
+            }
 
         }
+
+        public void Heal(float healthToRestore)
+        {
+            healthPoints.value = Mathf.Min(healthPoints.value + healthToRestore, GetMaxHealthPoints());
+            healEvent.Invoke(healthToRestore, CharacterClass.Healer);
+        }
+
+        //private void SpawnHealText(float healthToRestore)
+        //{
+        //    takeDamageEvent.Invoke(healthToRestore, CharacterClass.Healer);
+        //}
 
         private void AwardExperience(GameObject instigator)
         {
@@ -127,6 +148,7 @@ namespace RPG.Attributes
         private void RegenerateHealth()
         {
             float regenerateHP = GetComponent<BaseStats>().GetStat(Stat.Health) * (regenerationPercentage / 100);
+            healEvent.Invoke(regenerateHP, CharacterClass.Healer);
             healthPoints.value = Mathf.Max(regenerateHP, healthPoints.value);
         }
 

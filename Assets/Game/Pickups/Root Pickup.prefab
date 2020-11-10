@@ -45,7 +45,7 @@ CapsuleCollider:
   m_Radius: 0.68
   m_Height: 0.93
   m_Direction: 1
-  m_Center: {x: -2, y: 1.24, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2987278936723131058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,3 +59,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 11400000, guid: e55c4700a0d6ff44f986acef935fe291, type: 2}
+  healthToRestore: 0
+  respawnTime: 5

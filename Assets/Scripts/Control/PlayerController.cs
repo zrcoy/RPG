@@ -37,6 +37,8 @@ namespace RPG.Control
 
         void Update()
         {
+
+
             if (InteractWithUI()) return;
             if (health.IsDead())
             {
@@ -90,66 +92,111 @@ namespace RPG.Control
 
 
 
+        //private bool InteractWithMovement()
+        //{
+        //    Vector3 target;
+        //    bool hasHit = RaycastNavMesh(out target);
+        //    if (hasHit)
+        //    {
+
+        //        if (Input.GetMouseButton(0))
+        //        {
+        //            mover.StartMoveAction(target, 1f);
+        //        }
+        //        SetCursor(CursorType.Movement);
+        //        return true;
+        //    }
+        //    return false;
+        //}
+
         private bool InteractWithMovement()
         {
-            Vector3 target;
-            bool hasHit = RaycastNavMesh(out target);
-            if (hasHit)
-            {
 
+            RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
+            Vector3 target;
+            foreach (RaycastHit hit in hits)
+            {
+                if (hit.transform == transform)
+                {
+                    continue;
+                }
+                NavMeshHit navmeshHit;
+                bool hasCastToNavMesh = NavMesh.SamplePosition(hit.point, out navmeshHit, maxNavmeshProjectionDistance, NavMesh.AllAreas);
+                if (!hasCastToNavMesh)
+                {
+                    continue;
+                }
+                target = navmeshHit.position;
+                NavMeshPath path = new NavMeshPath();
+                bool hasPath = NavMesh.CalculatePath(transform.position, target, NavMesh.AllAreas, path);
+                if (!hasPath)
+                {
+                    continue;
+                }
+                if (path.status != NavMeshPathStatus.PathComplete)
+                {
+                    continue;
+                }
+                if (GetPathLength(path) >= maxNavPathLength)
+                {
+                    continue;
+                }
                 if (Input.GetMouseButton(0))
                 {
+
                     mover.StartMoveAction(target, 1f);
                 }
                 SetCursor(CursorType.Movement);
                 return true;
             }
+
+
             return false;
         }
 
-        private bool RaycastNavMesh(out Vector3 target)
-        {
-            target = new Vector3();
-            RaycastHit hit;
-            bool hasHit = Physics.Raycast(GetMouseRay(), out hit);
-            if (!hasHit)
-            {
-                return false;
-            }
-            NavMeshHit navmeshHit;
-            bool hasCastToNavMesh = NavMesh.SamplePosition(hit.point, out navmeshHit, maxNavmeshProjectionDistance, NavMesh.AllAreas);
-            if (!hasCastToNavMesh)
-            {
-                return false;
-            }
-            target = navmeshHit.position;
+        //private bool RaycastNavMesh(out Vector3 target)
+        //{
+        //    target = new Vector3();
+        //    RaycastHit hit;
+        //    bool hasHit = Physics.Raycast(GetMouseRay(), out hit);
+        //    if (!hasHit)
+        //    {
+        //        return false;
+        //    }
+        //    NavMeshHit navmeshHit;
+        //    bool hasCastToNavMesh = NavMesh.SamplePosition(hit.point, out navmeshHit, maxNavmeshProjectionDistance, NavMesh.AllAreas);
+        //    if (!hasCastToNavMesh)
+        //    {
+        //        return false;
+        //    }
+        //    target = navmeshHit.position;
 
-            NavMeshPath path = new NavMeshPath();
-            bool hasPath = NavMesh.CalculatePath(transform.position, target, NavMesh.AllAreas, path);
-            if (!hasPath)
-            {
-                return false;
-            }
-            if (path.status != NavMeshPathStatus.PathComplete)
-            {
-                return false;
-            }
-            if(GetPathLength(path)>=maxNavPathLength)
-            {
-                return false;
-            }
+        //    NavMeshPath path = new NavMeshPath();
+        //    bool hasPath = NavMesh.CalculatePath(transform.position, target, NavMesh.AllAreas, path);
+        //    if (!hasPath)
+        //    {
+        //        return false;
+        //    }
+        //    if (path.status != NavMeshPathStatus.PathComplete)
+        //    {
+        //        return false;
+        //    }
+        //    if (GetPathLength(path) >= maxNavPathLength)
+        //    {
+        //        return false;
+        //    }
 
-            return true;
-        }
+        //    return true;
+        //}
 
         private float GetPathLength(NavMeshPath path)
         {
             float length = 0;
-            if(path.corners.Length<2)
+            if (path.corners.Length < 2)
             {
                 return length;
             }
-            for(int i = 0;i<path.corners.Length-1;i++)
+            for (int i = 0; i < path.corners.Length - 1; i++)
             {
                 length += Vector3.Distance(path.corners[i], path.corners[i + 1]);
             }

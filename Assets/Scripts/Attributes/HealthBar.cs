@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using RPG.Core;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,14 +7,10 @@ namespace RPG.Attributes
 {
     public class HealthBar : MonoBehaviour
     {
-        Health health = null;
-        Canvas canvas = null;
+        [SerializeField] Health health = null;
+        [SerializeField] Canvas canvas = null;
 
-        private void Start()
-        {
-            health = GetComponentInParent<Health>();
-            canvas = GetComponentInParent<Canvas>();
-        }
+
         private void Update()
         {
             if (health != null)

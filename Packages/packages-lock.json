@@ -44,6 +44,13 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.unity.postprocessing": {
+      "version": "2.3.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
     "com.unity.render-pipelines.core": {
       "version": "8.2.0",
       "depth": 1,
@@ -117,11 +124,11 @@
       }
     },
     "com.unity.visualeffectgraph": {
-      "version": "7.3.1",
+      "version": "8.2.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.shadergraph": "7.3.1"
+        "com.unity.shadergraph": "8.2.0"
       },
       "url": "https://packages.unity.com"
     },
