@@ -65,7 +65,7 @@ namespace RPG.Attributes
 
         public void TakeDamage(GameObject instigator, float damage)
         {
-            print(gameObject.name + " took damage: " + damage);
+            //print(gameObject.name + " took damage: " + damage);
             healthPoints.value = Mathf.Max(healthPoints.value - damage, 0);
 
             //print(healthPoints);
@@ -92,10 +92,7 @@ namespace RPG.Attributes
             healEvent.Invoke(healthToRestore, CharacterClass.Healer);
         }
 
-        //private void SpawnHealText(float healthToRestore)
-        //{
-        //    takeDamageEvent.Invoke(healthToRestore, CharacterClass.Healer);
-        //}
+
 
         private void AwardExperience(GameObject instigator)
         {

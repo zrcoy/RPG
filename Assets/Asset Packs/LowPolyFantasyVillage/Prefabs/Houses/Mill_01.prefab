@@ -27,7 +27,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 1.5
-  rotateAround: {x: 0, y: 0, z: 1}
+  axisRotateAround: {x: 0, y: 0, z: 1}
+  space: 1
 --- !u!1 &5243108763459407369
 GameObject:
   m_ObjectHideFlags: 0

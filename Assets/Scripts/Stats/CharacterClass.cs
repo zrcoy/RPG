@@ -7,5 +7,6 @@
         Mage,
         Archer,
         Healer,
+        Knight,
     }
 }

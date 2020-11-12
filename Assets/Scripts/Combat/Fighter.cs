@@ -6,8 +6,6 @@ using RPG.Attributes;
 using RPG.Stats;
 using System.Collections.Generic;
 using GameDevTV.Utils;
-using System;
-using UnityEngine.Events;
 
 namespace RPG.Combat
 {
@@ -17,6 +15,7 @@ namespace RPG.Combat
         [SerializeField] Transform rightHandTransform = null;
         [SerializeField] Transform leftHandTransform = null;
         [SerializeField] WeaponConfig defaultWeapon = null;
+        [SerializeField] float sameHeightLevelThreshold = 1.5f;
 
 
 
@@ -103,7 +102,7 @@ namespace RPG.Combat
             }
             float damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
 
-            if(currentWeapon.value != null)
+            if (currentWeapon.value != null)
             {
                 currentWeapon.value.OnHit();
             }
@@ -166,8 +165,22 @@ namespace RPG.Combat
             {
                 return false;
             }
+
+            if (!GetComponent<Mover>().CanMoveTo(combatTarget.transform.position))
+            {
+                if (isSameHeightLevel(combatTarget))
+                {
+                    return false;
+                }
+
+            }
             Health tar = combatTarget.GetComponent<Health>();
             return (tar != null && !tar.IsDead());
+        }
+
+        private bool isSameHeightLevel(GameObject combatTarget)
+        {
+            return Mathf.Abs(transform.position.y - combatTarget.transform.position.y) <= sameHeightLevelThreshold;
         }
 
         public void Attack(GameObject combatTarget)

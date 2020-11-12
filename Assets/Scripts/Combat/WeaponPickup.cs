@@ -1,5 +1,6 @@
 ﻿using RPG.Attributes;
 using RPG.Control;
+using RPG.Movement;
 using System.Collections;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ namespace RPG.Combat
         [SerializeField] WeaponConfig weapon = null;
         [SerializeField] float healthToRestore = 0;
         [SerializeField] float respawnTime = 5;
+        [SerializeField] float maxRangeGetPickup = 30f;
 
 
         private void OnTriggerEnter(Collider other)
@@ -54,10 +56,18 @@ namespace RPG.Combat
         {
             if (Input.GetMouseButtonDown(0))
             {
+                if(!isWithinRange(callingController))
+                {
+                    return false;
+                }
                 Pickup(callingController.gameObject);
-
             }
             return true;
+        }
+
+        private bool isWithinRange(PlayerController callingController)
+        {
+            return Vector3.Distance(callingController.transform.position, transform.position) <= maxRangeGetPickup;
         }
 
         public CursorType GetCursorType()

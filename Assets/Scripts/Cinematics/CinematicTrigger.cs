@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 using RPG.Saving;
+using RPG.Movement;
 
 namespace RPG.Cinematics
 {
@@ -14,7 +15,7 @@ namespace RPG.Cinematics
         {
             return alreadyTriggered;
         }
-
+        
         public void RestoreState(object state)
         {
             alreadyTriggered = (bool)state;
@@ -26,7 +27,6 @@ namespace RPG.Cinematics
             {
                 GetComponent<PlayableDirector>().Play();
                 alreadyTriggered = false;
-
             }
         }
     }
